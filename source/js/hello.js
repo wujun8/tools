@@ -1,5 +1,6 @@
 /**        
 location /ddrobot/ {
+    set $args "access_token=<your token>";
     proxy_pass https://oapi.dingtalk.com/robot/;
     add_header Access-Control-Allow-Origin *;
     add_header Access-Control-Allow-Methods "POST, GET, OPTIONS";
@@ -8,7 +9,7 @@ location /ddrobot/ {
 }
 **/
 function notify(message, at) {
-    $.ajax({ url:'http://localhost/ddrobot/send?access_token=5da135fe73a1bbe298341369c8a0c262e738007d38847dd10b3a80195cc7eb8b',
+    $.ajax({ url:'http://localhost/ddrobot/send',
     type:'post',
     contentType: "application/json; charset=utf-8",
     dataType: "json",
